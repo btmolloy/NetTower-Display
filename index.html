@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
@@ -27,10 +27,11 @@
     <nav id="site-nav" class="site-nav">
       <a href="#overview">Overview</a>
       <a href="#features">Features</a>
-      <a href="#simulation">Simulation</a>
+      <a href="#demo">Demo</a>
       <a href="#architecture">Architecture</a>
-      <a href="#timeline">Timeline</a>
       <a href="#stack">Tech</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#download">Download</a>
       <a href="#links">Links</a>
     </nav>
   </header>
@@ -40,10 +41,10 @@
       <p class="eyebrow">Individual Project - Ben Molloy - Capstone</p>
       <h1>NetTower</h1>
       <p class="hero-subtitle">
-        A lightweight network situational awareness tool for small, ad-hoc, and disrupted network environments.
+        Local-first network situational awareness for small, ad-hoc, and disrupted environments.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#overview">Explore Project</a>
+        <a class="btn btn-primary" href="#demo">Open Demo</a>
         <a class="btn btn-ghost" href="https://github.com/btmolloy/NetTower-Capstone-Project" target="_blank" rel="noreferrer">View Repository</a>
       </div>
       <div class="hero-metrics">
@@ -52,8 +53,8 @@
           <p>Core System Features</p>
         </article>
         <article>
-          <h2>2</h2>
-          <p>Sprint Cycles</p>
+          <h2>Local</h2>
+          <p>Runs Without Cloud Dependency</p>
         </article>
         <article>
           <h2>4/27/2026</h2>
@@ -90,79 +91,189 @@
       <h2>Core Features</h2>
       <div class="feature-grid">
         <article class="feature-card">
-          <h3>1. Topology View (2D + Optional 3D)</h3>
+          <h3>Topology View (2D + Optional 3D)</h3>
           <p>Discovered devices are rendered as a network topology with a 2D default and optional 3D view.</p>
         </article>
         <article class="feature-card">
-          <h3>2. Node-Centric Exploration</h3>
+          <h3>Node-Centric Exploration</h3>
           <p>Each host is a selectable node that can be expanded to inspect device-level details.</p>
         </article>
         <article class="feature-card">
-          <h3>3. Host Classification</h3>
+          <h3>Host Classification</h3>
           <p>Nodes are visually differentiated using inferred characteristics such as OS family or device type.</p>
         </article>
         <article class="feature-card">
-          <h3>4. Connectivity Representation</h3>
+          <h3>Connectivity Representation</h3>
           <p>Observed and inferred relationships are shown as links between related hosts.</p>
         </article>
         <article class="feature-card">
-          <h3>5. Heat Mapping Overlay</h3>
+          <h3>Heat Mapping Overlay</h3>
           <p>Optional activity or density overlays highlight where network concentration is strongest.</p>
         </article>
         <article class="feature-card">
-          <h3>6. Dynamic State Updates</h3>
+          <h3>Dynamic State Updates</h3>
           <p>Visualization updates reflect changing host availability and status over time.</p>
         </article>
         <article class="feature-card">
-          <h3>7. Interactive Navigation</h3>
+          <h3>Interactive Navigation</h3>
           <p>Users can pan, zoom, and adjust perspective for focused network inspection.</p>
         </article>
         <article class="feature-card">
-          <h3>8. User-Controlled Scanning</h3>
+          <h3>User-Controlled Scanning</h3>
           <p>Discovery targets and scan behavior are adjustable to match local network constraints.</p>
         </article>
       </div>
     </section>
 
-    <section id="simulation" class="panel reveal">
-      <h2>Interactive Simulation (Frontend Mock)</h2>
+    <section id="demo" class="panel panel-demo reveal">
+      <h2>Demo</h2>
       <p class="section-intro">
-        NetTower runs locally, so this page does not perform real network discovery. The interface below is a
-        visualization simulation to demonstrate expected user workflow and interaction patterns.
+        This is a frontend simulation of the NetTower interface for GitHub Pages. It mirrors app behavior and visual style,
+        but does not run real network scans from the browser.
       </p>
-      <div class="sim-layout">
-        <aside class="sim-controls">
-          <h3>Scan Controls</h3>
-          <label for="target-range">Target Range</label>
-          <input id="target-range" type="text" value="192.168.1.0/24" />
 
-          <label for="scan-frequency">Scan Frequency</label>
-          <select id="scan-frequency">
-            <option value="slow">Slow (5s)</option>
-            <option value="medium" selected>Medium (3s)</option>
-            <option value="fast">Fast (1.5s)</option>
-          </select>
+      <div class="app-window" aria-label="Mock NetTower session window">
+        <div class="window-titlebar">
+          <div class="window-buttons" aria-hidden="true">
+            <span class="window-dot red"></span>
+            <span class="window-dot yellow"></span>
+            <span class="window-dot green"></span>
+          </div>
+          <p>NetTower Session</p>
+        </div>
 
-          <div class="sim-actions">
-            <button id="start-sim" class="btn btn-primary" type="button">Start Simulation</button>
-            <button id="pause-sim" class="btn btn-ghost" type="button">Pause</button>
+        <div class="session-frame">
+          <header class="session-header">
+            <div class="session-heading">
+              <h3>
+                <span class="heading-icon" aria-hidden="true">[]</span>
+                NetTower Session Running
+              </h3>
+              <p>2D mode shows active topology layout optimized for analysis. Drag to pan.</p>
+            </div>
+            <div class="session-controls">
+              <button id="open-settings" class="session-btn" type="button">Settings</button>
+              <button class="session-btn" type="button">Hosts: All</button>
+              <button class="session-btn" type="button">Topology: Tree</button>
+              <button class="session-btn" type="button">Mode: 2D</button>
+              <button id="toggle-session" class="session-btn danger" type="button">Stop Session</button>
+            </div>
+          </header>
+
+          <div class="session-canvas-shell">
+            <aside class="activity-heat" aria-label="Activity heat legend">
+              <h4>ACTIVITY HEAT</h4>
+              <p>Node color reflects recency of communication.</p>
+              <ul>
+                <li><span class="status-dot hot"></span>Active (0-30s)</li>
+                <li><span class="status-dot warm"></span>Warm (30-120s)</li>
+                <li><span class="status-dot cold"></span>Cold (120s+)</li>
+              </ul>
+            </aside>
+
+            <div id="sim-map" class="session-map" aria-label="Simulated topology map"></div>
+
+            <aside id="host-drawer" class="host-drawer" aria-label="Host details panel">
+              <div class="drawer-top">
+                <h4>Host Details</h4>
+                <button id="close-host" class="drawer-close" type="button" aria-label="Close host details">x</button>
+              </div>
+              <div id="host-drawer-content" class="host-fields">
+                <p class="drawer-placeholder">Select a node to inspect host details.</p>
+              </div>
+            </aside>
+
+            <aside id="settings-drawer" class="settings-drawer" aria-label="Settings panel">
+              <div class="drawer-top">
+                <h4>Settings</h4>
+                <button id="close-settings" class="drawer-close" type="button" aria-label="Close settings">x</button>
+              </div>
+
+              <p class="settings-note">Display-only mock controls.</p>
+
+              <div class="settings-content" aria-hidden="true">
+                <div class="settings-tabs" role="tablist" aria-label="Settings tabs">
+                  <button class="settings-tab active" type="button" role="tab" aria-selected="true">Display</button>
+                  <button class="settings-tab" type="button" role="tab" aria-selected="false">Data</button>
+                </div>
+
+                <section class="settings-group">
+                  <h5>STALE HOST VISIBILITY</h5>
+                  <label class="toggle-row" for="toggle-hide-stale">
+                    Hide stale hosts
+                    <span class="toggle-wrap">
+                      <input id="toggle-hide-stale" type="checkbox" />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <label class="toggle-row" for="toggle-keep-private">
+                    Keep stale private hosts
+                    <span class="toggle-wrap">
+                      <input id="toggle-keep-private" type="checkbox" checked />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <label for="hide-host-seconds">Hide host after (seconds)</label>
+                  <input id="hide-host-seconds" type="number" value="180" />
+                </section>
+
+                <section class="settings-group">
+                  <h5>ACTIVE SENSOR</h5>
+                  <label class="toggle-row" for="toggle-active-sensor">
+                    Enable active sensor
+                    <span class="toggle-wrap">
+                      <input id="toggle-active-sensor" type="checkbox" />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <label class="toggle-row" for="toggle-icmp">
+                    Enable ICMP/Ping scan
+                    <span class="toggle-wrap">
+                      <input id="toggle-icmp" type="checkbox" />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <label class="toggle-row" for="toggle-nmap">
+                    Enable NMAP scan
+                    <span class="toggle-wrap">
+                      <input id="toggle-nmap" type="checkbox" />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                  <label class="toggle-row" for="toggle-public">
+                    Allow public internet scans
+                    <span class="toggle-wrap">
+                      <input id="toggle-public" type="checkbox" />
+                      <span class="switch"></span>
+                    </span>
+                  </label>
+                </section>
+
+                <label for="refresh-interval">Refresh interval (ms)</label>
+                <input id="refresh-interval" type="number" value="3000" />
+
+                <label for="host-limit">Host render limit</label>
+                <input id="host-limit" type="number" value="250" />
+
+                <label for="edge-limit">Edge render limit</label>
+                <input id="edge-limit" type="number" value="500" />
+
+                <button id="apply-settings" class="apply-btn" type="button">Apply Settings</button>
+              </div>
+            </aside>
+
+            <div class="zoom-rail" aria-label="Demo zoom controls">
+              <button id="zoom-in" type="button">+</button>
+              <input id="zoom-level" type="range" min="70" max="180" value="100" />
+              <button id="zoom-out" type="button">-</button>
+            </div>
           </div>
 
-          <div class="sim-legend">
-            <p><span class="dot active"></span> Active</p>
-            <p><span class="dot warning"></span> Intermittent</p>
-            <p><span class="dot offline"></span> Offline</p>
-          </div>
-
-          <p id="sim-status" class="sim-status">Simulation idle.</p>
-        </aside>
-
-        <div class="sim-map-wrap">
-          <div id="sim-map" class="sim-map" aria-label="Simulated network topology"></div>
-          <article id="node-detail" class="node-detail">
-            <h3>Node Detail</h3>
-            <p>Select a node to inspect simulated host details.</p>
-          </article>
+          <footer class="session-footer">
+            <span id="session-state">Session is running.</span>
+            <span id="session-counts">Hosts: 0/0 | Edges: 0/0</span>
+            <span id="session-update">Last update: --</span>
+          </footer>
         </div>
       </div>
     </section>
@@ -191,134 +302,223 @@
         </article>
       </div>
       <div class="directory-box">
-        <h3>Project Structure (In Progress)</h3>
-        <pre><code>NetTower/
-|-- backEnd/
-|-- frontEnd/
-`-- tests/</code></pre>
+        <h3>Project Structure</h3>
+        <div class="structure-showcase">
+          <article class="structure-card">
+            <h4>backEnd</h4>
+            <ul class="file-tree">
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">models</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">__init__.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">entities.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">events.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">types.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">pipeline</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">event_bus.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">processors</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">correlation.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">enrichment.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">extractors.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">resources</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge json">JSON</span><span class="tree-name">device_hints.json</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge json">JSON</span><span class="tree-name">oui_vendors.json</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">runtime</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">__init__.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">binary_resolver.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">config.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">mongo_runtime.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">paths.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">runtime_state.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">session_config.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">session_manager.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">settings.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">shutdown.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">supervisor.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">sensors</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">active_discovery.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">passive_listener.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">storage</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">librarian.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">mongo_client.py</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">utils</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">logging.py</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">net.py</span></span></li>
+                </ul>
+              </li>
+              <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">__init__.py</span></span></li>
+              <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">main.py</span></span></li>
+            </ul>
+          </article>
+
+          <article class="structure-card">
+            <h4>frontEnd</h4>
+            <ul class="file-tree">
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">css</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge css">CSS</span><span class="tree-name">styles.css</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">js</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge js">JS</span><span class="tree-name">launch_controller.js</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge js">JS</span><span class="tree-name">main_controller.js</span></span></li>
+                </ul>
+              </li>
+              <li>
+                <span class="tree-item"><span class="type-badge dir">DIR</span><span class="tree-name">windows</span></span>
+                <ul>
+                  <li><span class="tree-item"><span class="type-badge html">HTML</span><span class="tree-name">launch.html</span></span></li>
+                  <li><span class="tree-item"><span class="type-badge html">HTML</span><span class="tree-name">main.html</span></span></li>
+                </ul>
+              </li>
+              <li><span class="tree-item"><span class="type-badge js">JS</span><span class="tree-name">main.js</span></span></li>
+              <li><span class="tree-item"><span class="type-badge png">PNG</span><span class="tree-name">NetTowerIcon-square.png</span></span></li>
+              <li><span class="tree-item"><span class="type-badge png">PNG</span><span class="tree-name">NetTowerIcon.png</span></span></li>
+              <li><span class="tree-item"><span class="type-badge lock">LOCK</span><span class="tree-name">package-lock.json</span></span></li>
+              <li><span class="tree-item"><span class="type-badge npm">NPM</span><span class="tree-name">package.json</span></span></li>
+              <li><span class="tree-item"><span class="type-badge js">JS</span><span class="tree-name">preload.js</span></span></li>
+              <li><span class="tree-item"><span class="type-badge py">PY</span><span class="tree-name">supervisor_bridge.py</span></span></li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="timeline" class="panel reveal">
-      <h2>Timeline & Milestones</h2>
-      <div class="timeline-controls" role="tablist" aria-label="Sprint views">
-        <button class="tab-btn active" type="button" data-sprint="sprint1" role="tab" aria-selected="true">Sprint 1</button>
-        <button class="tab-btn" type="button" data-sprint="sprint2" role="tab" aria-selected="false">Sprint 2</button>
-      </div>
-
-      <div class="timeline-track" data-track="sprint1">
-        <article><span>Week 5 - 2/9</span><p>Project setup and baseline agentless discovery</p></article>
-        <article><span>Week 6 - 2/16</span><p>Network scanning and host identification</p></article>
-        <article><span>Week 7 - 2/23</span><p>Basic connectivity inference and relationship modeling</p></article>
-        <article><span>Week 8 - 3/2</span><p>Backend completion and stability</p></article>
-        <article><span>3/2</span><p>Sprint 1 presentation</p></article>
-      </div>
-
-      <div class="timeline-track hidden" data-track="sprint2">
-        <article><span>Week 10 - 3/16</span><p>Front-end build phase</p></article>
-        <article><span>Week 11 - 3/23</span><p>Visualization refinement and polish</p></article>
-        <article><span>Week 12 - 3/30</span><p>Frontend-backend integration and topology rendering</p></article>
-        <article><span>Week 13 - 4/6</span><p>Performance optimization and user testing</p></article>
-        <article><span>Week 14 - 4/13</span><p>Documentation and publication prep</p></article>
-        <article><span>Week 15 - 4/20</span><p>Final testing, demo, and submission</p></article>
-        <article><span>Week 16 - 4/27</span><p>Final presentation</p></article>
-      </div>
-
-      <div class="deadline-grid">
-        <article><h3>Milestone 1</h3><p>Planning & backend architecture finalized</p><span>February 16, 2026</span></article>
-        <article><h3>Hard Deadline 1</h3><p>Backend core complete</p><span>March 9, 2026</span></article>
-        <article><h3>Milestone 2</h3><p>Frontend integration functional</p><span>March 24, 2026</span></article>
-        <article><h3>Hard Deadline 2</h3><p>Functional prototype ready</p><span>April 7, 2026</span></article>
-        <article><h3>Milestone 3</h3><p>Visualization enhancements integrated</p><span>April 14, 2026</span></article>
-        <article><h3>Hard Deadline 3</h3><p>Refinement and testing complete</p><span>April 17, 2026</span></article>
-        <article><h3>Milestone 4</h3><p>Documentation and demo prepared</p><span>April 19, 2026</span></article>
-        <article><h3>Hard Deadline 4</h3><p>Finalized and published</p><span>April 22, 2026</span></article>
-      </div>
-    </section>
-
-    <section id="stack" class="panel reveal">
-      <h2>Tools & Technologies</h2>
-      <div class="chip-wrap">
-        <span>Python</span>
-        <span>JavaScript</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>REST-style APIs</span>
-        <span>JSON Data Exchange</span>
-        <span>MongoDB (Subject to Refinement)</span>
-        <span>tcpdump</span>
-        <span>ICMP Utilities</span>
-        <span>traceroute</span>
-        <span>ARP Utilities</span>
-        <span>nmap</span>
-      </div>
-      <div class="two-col">
+    <section id="stack" class="panel stack-panel reveal">
+      <h2>Tools and Technologies</h2>
+      <div class="stack-grid">
         <article>
-          <h3>Testing Strategy</h3>
+          <h3>Core Build</h3>
+          <ul>
+            <li>Python for discovery and modeling logic</li>
+            <li>JavaScript, HTML, and CSS for visualization interface</li>
+            <li>REST-style APIs with JSON data exchange</li>
+            <li>MongoDB (subject to refinement)</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Network Tooling</h3>
+          <ul>
+            <li>tcpdump for packet-level observation</li>
+            <li>ICMP and traceroute utilities for reachability and path inference</li>
+            <li>ARP utilities for local host resolution</li>
+            <li>nmap for supplemental discovery context</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Testing Approach</h3>
           <ul>
             <li>Unit testing for discovery and inference logic</li>
-            <li>Integration testing between scanning and visualization</li>
-            <li>Functional testing of feature behavior</li>
-            <li>Manual validation in small lab environments</li>
-            <li>Performance testing under varying host counts</li>
+            <li>Integration testing between scanner and visualization layers</li>
+            <li>Functional validation in lab-scale network scenarios</li>
+            <li>Performance checks under varying host and edge counts</li>
           </ul>
         </article>
         <article>
-          <h3>Challenges & Risks</h3>
+          <h3>Operational Risks</h3>
           <ul>
             <li>Incomplete or misleading network data</li>
-            <li>Inference uncertainty with constrained visibility</li>
-            <li>Balancing simplicity with practical depth</li>
-            <li>Segmented or restricted network boundaries</li>
-            <li>Schedule pressure alongside military obligations</li>
+            <li>Inference uncertainty under constrained visibility</li>
+            <li>Segmented network boundaries and restricted hosts</li>
+            <li>Balancing detail, clarity, and deployment simplicity</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="panel reveal">
-      <h2>Learning with AI</h2>
-      <p>
-        AI is used as a technical learning aid, not as a runtime product feature. It supports protocol analysis,
-        edge-case reasoning, and design decisions for constrained network conditions.
+    <section id="gallery" class="panel reveal">
+      <h2>NetTower in Action</h2>
+      <p class="section-intro">
+        Click any screenshot to view it full size.
       </p>
-      <div class="two-col">
-        <article>
-          <h3>Focus Areas</h3>
-          <ul>
-            <li>Layer 2, 3, and 4 protocol behavior and limits</li>
-            <li>Packet structure and lower-level protocol mechanics</li>
-          </ul>
-        </article>
-        <article>
-          <h3>How AI Helps</h3>
-          <ul>
-            <li>Breaking down protocol mechanics step-by-step</li>
-            <li>Evaluating inference boundaries and uncertainty</li>
-            <li>Validating reasoning before implementation</li>
-          </ul>
-        </article>
+      <div class="gallery-grid">
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%201.png" alt="NetTower screenshot 1" />
+          <figcaption>Image 1</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%202.png" alt="NetTower screenshot 2" />
+          <figcaption>Image 2</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%203.png" alt="NetTower screenshot 3" />
+          <figcaption>Image 3</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%204.png" alt="NetTower screenshot 4" />
+          <figcaption>Image 4</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%205.png" alt="NetTower screenshot 5" />
+          <figcaption>Image 5</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%206.png" alt="NetTower screenshot 6" />
+          <figcaption>Image 6</figcaption>
+        </figure>
+        <figure class="gallery-slot">
+          <img class="gallery-image" src="assets/images/Image%207.png" alt="NetTower screenshot 7" />
+          <figcaption>Image 7</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="links" class="panel reveal">
+    <section id="download" class="panel reveal">
+      <h2>Download the Code</h2>
+      <p class="section-intro">
+        Grab the latest project snapshot directly from GitHub.
+      </p>
+      <div class="download-card">
+        <a class="btn btn-primary" href="https://github.com/btmolloy/NetTower-Capstone-Project/archive/refs/heads/main.zip" target="_blank" rel="noreferrer">Download NetTower ZIP</a>
+        <a class="btn btn-ghost" href="https://github.com/btmolloy/NetTower-Capstone-Project" target="_blank" rel="noreferrer">Open Repository</a>
+      </div>
+    </section>
+
+    <section id="links" class="panel links-panel reveal">
       <h2>Project Links</h2>
-      <div class="link-grid">
-        <a href="https://github.com/btmolloy/NetTower-Capstone-Project" target="_blank" rel="noreferrer">
-          <h3>GitHub Repository</h3>
-          <p>Primary source code and deliverables.</p>
+      <div class="resource-list">
+        <a class="resource-row" href="https://github.com/btmolloy/NetTower-Capstone-Project" target="_blank" rel="noreferrer">
+          <span class="resource-label">GitHub Repository</span>
+          <span class="resource-desc">Primary source code, structure, and commits.</span>
         </a>
-        <a href="https://github.com/btmolloy/NetTower-Capstone-Project/blob/main/docs/PPP/PPP%20-%20NetTower.pdf" target="_blank" rel="noreferrer">
-          <h3>PPP Document</h3>
-          <p>Project planning and process document.</p>
+        <a class="resource-row" href="https://github.com/btmolloy/NetTower-Capstone-Project/blob/main/docs/PPP/PPP%20-%20NetTower.pdf" target="_blank" rel="noreferrer">
+          <span class="resource-label">PPP Document</span>
+          <span class="resource-desc">Project planning and process documentation.</span>
         </a>
-        <a href="https://github.com/btmolloy/NetTower-Capstone-Project/tree/main/docs" target="_blank" rel="noreferrer">
-          <h3>Project Documentation</h3>
-          <p>System documentation, design, and notes.</p>
-        </a>
-        <a href="https://github.com/btmolloy/Learning-With-AI" target="_blank" rel="noreferrer">
-          <h3>Learning with AI Repository</h3>
-          <p>Associated AI-supported technical learning artifacts.</p>
+        <a class="resource-row" href="https://github.com/btmolloy/NetTower-Capstone-Project/tree/main/docs" target="_blank" rel="noreferrer">
+          <span class="resource-label">Project Documentation</span>
+          <span class="resource-desc">Technical design notes, docs, and supporting artifacts.</span>
         </a>
       </div>
     </section>
@@ -328,6 +528,12 @@
     <p>NetTower Capstone Showcase - Ben Molloy - 2026</p>
     <a href="#top">Back to top</a>
   </footer>
+
+  <div id="gallery-lightbox" class="lightbox" hidden>
+    <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close image">x</button>
+    <img id="lightbox-image" class="lightbox-image" src="" alt="" />
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
 
   <script src="script.js"></script>
 </body>
