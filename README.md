@@ -1,1 +1,1 @@
-## This is a the NetTower Product Site Repository ##
+## This is the NetTower Product Site Repository ##
